@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,10 +33,16 @@ public class Formulario_alunos extends AppCompatActivity {
 
         setContentView(R.layout.activity_formulario_alunos);
         InicializaCampos();
-        btnSalvar();
+        //btnSalvar();
         carregaAluno();
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_formulario_menu_aluno,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     private void carregaAluno() {
@@ -56,7 +64,7 @@ public class Formulario_alunos extends AppCompatActivity {
         campoMail.setText(aluno.getTelefone());
         campoTel.setText(aluno.getEmail());
     }
-
+    /*
     private void btnSalvar() {
         Button btnSalvar=findViewById(R.id.btn_salvar_formulario);
         btnSalvar.setOnClickListener(new View.OnClickListener(){
@@ -67,6 +75,17 @@ public class Formulario_alunos extends AppCompatActivity {
                 finalizaCadastro();
             }
         });
+    }
+
+     */
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if(itemId==R.id.activity_aluno_menu_salvar){
+            finalizaCadastro();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void finalizaCadastro() {
