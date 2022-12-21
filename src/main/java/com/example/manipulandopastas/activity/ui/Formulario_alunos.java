@@ -32,6 +32,7 @@ public class Formulario_alunos extends AppCompatActivity {
         setContentView(R.layout.activity_formulario_alunos);
         inicializacaoDosCampos();
         carregaAluno();
+        //1234
     }
 
     @Override
